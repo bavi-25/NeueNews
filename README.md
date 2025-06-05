@@ -1,4 +1,4 @@
-# 📰 Portal Berita Interaktif - Laravel NewsHub
+# 📰 Portal Berita Interaktif - NeueNews
 
 Sebuah aplikasi portal berita berbasis web yang **interaktif**, **mudah digunakan**, dan **berorientasi komunitas**. Dibangun menggunakan teknologi modern seperti **HTML**, **CSS**, **JavaScript**, dan **Laravel**, proyek ini bertujuan untuk menciptakan ruang di mana semua orang dapat menjadi bagian dari proses pemberitaan.
 
