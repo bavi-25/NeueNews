@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -19,14 +20,15 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
-        // Attempt to log the user in
-        if (auth()->attempt($credentials)) {
-            // Redirect to the intended page or home
-            return redirect()->intended('admin/news');
+        $remember = false;
+        if ($request->has('remember')) {
+            $remember  = true;
+        } else {
+            $remember = false;
         }
-
-        // If authentication fails, redirect back with an error message
+        if (Auth::attempt($credentials, $remember)) {
+            return redirect()->intended('admin/news')->with('success', 'You are logged in successfully!');
+        }
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
