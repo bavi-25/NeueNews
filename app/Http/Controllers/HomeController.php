@@ -9,10 +9,11 @@ class HomeController extends Controller
     //
     public function home()
     {
-        return view('landing.index');
+
+        return view('admin.dashboard.index');
     }
 
-    public function admin()
+    public function dashboard()
     {
         return view('admin.dashboard.index');
     }
