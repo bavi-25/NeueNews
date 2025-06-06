@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +15,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//Free Area
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
+
+
+
+
+//ADMIN Area
+Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
+    Route::resource('news', NewsController::class)->names('news');
 });
