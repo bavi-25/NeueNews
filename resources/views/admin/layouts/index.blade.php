@@ -109,11 +109,11 @@
                 <div class="quixnav-scroll">
                     <ul class="metismenu" id="menu">
                         <li class="nav-label first">Main Menu</li>
-                        <li>
+                        <li class="{{ Request::is('admin/dashboard*') ? 'mm-active' : '' }}">
                             <a href="{{ route('admin.dashboard') }}" aria-expanded="false"><i
                                     class="icon icon-layout-grid"></i><span class="nav-text">Dashboard</span></a>
                         </li>
-                        <li>
+                        <li class="{{ Request::is('admin/news*') ? 'mm-active' : '' }}">
                             <a href="{{ route('admin.news.index') }}" aria-expanded="false"><i
                                     class="icon icon-single-content-03"></i><span class="nav-text">News</span></a>
                         </li>
