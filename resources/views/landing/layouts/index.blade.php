@@ -5,8 +5,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>NeueNews</title>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+        <link rel="stylesheet" href="/assets/icons/font-awesome-old/css/font-awesome.min.css">
+
+        <link href="/assets/css/style.css" rel="stylesheet">
         <style>
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -153,7 +155,7 @@
 
             /* Content Styles */
             .hero-section {
-                background: linear-gradient(135deg, #343957 0%, #7c4dff 100%);
+                background: linear-gradient(135deg, #43496e 0%, #130143 100%);
                 color: white;
                 padding: 40px 0;
                 margin-bottom: 30px;
@@ -241,13 +243,11 @@
                     <!-- Breaking News & Date -->
                     <div class="d-flex align-items-center flex-wrap">
                         <span class="breaking-news">
-                            <i class="fas fa-bolt"></i> BREAKING
+                            <i class="fa fa-bolt"></i> BREAKING
                         </span>
                         <span class="navbar-text">
-                            <i class="far fa-calendar-alt mr-1"></i> Jumat, 6 Juni 2025
-                        </span>
-                        <span class="navbar-text">
-                            <i class="fas fa-thermometer-half mr-1"></i> Jakarta 32°C
+                            <i class="fa fa-calendar mr-1"></i>
+                            <span id="current-date">Loading...</span>
                         </span>
                     </div>
 
@@ -256,27 +256,27 @@
                         <ul class="navbar-nav flex-row">
                             <li class="nav-item">
                                 <a class="nav-link" href="#" title="Facebook">
-                                    <i class="fab fa-facebook-f"></i>
+                                    <i class="fa fa-facebook-f"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" title="Twitter">
-                                    <i class="fab fa-twitter"></i>
+                                    <i class="fa fa-twitter"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" title="Instagram">
-                                    <i class="fab fa-instagram"></i>
+                                    <i class="fa fa-instagram"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" title="YouTube">
-                                    <i class="fab fa-youtube"></i>
+                                    <i class="fa fa-youtube"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" title="WhatsApp">
-                                    <i class="fab fa-whatsapp"></i>
+                                    <i class="fa fa-whatsapp"></i>
                                 </a>
                             </li>
                         </ul>
@@ -289,8 +289,8 @@
         <nav class="navbar navbar-expand-lg main-navbar sticky-top">
             <div class="container">
                 <!-- Brand/Logo -->
-                <a class="navbar-brand" href="#">
-                    <i class="fas fa-newspaper"></i>NeueNews
+                <a class="navbar-brand" href="/">
+                    <i class="fa fa-newspaper-o"></i>NeueNews
                 </a>
 
                 <!-- Mobile Toggle Button -->
@@ -301,7 +301,7 @@
                 <!-- Main Navigation Menu -->
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link active" href="#home">Beranda</a>
                         </li>
                         <li class="nav-item dropdown">
@@ -332,191 +332,39 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#lifestyle">Lifestyle</a>
-                        </li>
-                        <li class="nav-item">
+                        </li> --}}
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="#opinion">Opinion</a>
+                        </li> --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
                         </li>
                     </ul>
-
-                    <!-- Search Box -->
-                    <div class="search-box ml-3">
-                        <input type="text" class="form-control" placeholder="Cari berita...">
-                        <button class="search-btn" type="button">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
                 </div>
             </div>
         </nav>
 
         <!-- Hero Section -->
+        @if (Request::is('/'))
         <div class="hero-section">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-8">
-                        <h1 class="display-4 mb-3">Portal Berita Terpercaya</h1>
+                        <h1 class="display-4 mb-3 text-white">Portal Berita Terpercaya</h1>
                         <p class="lead">Dapatkan informasi terkini, akurat, dan terpercaya dari berbagai kategori berita
                             yang kami sajikan setiap hari.</p>
                     </div>
                     <div class="col-lg-4 text-center">
-                        <i class="fas fa-newspaper fa-5x mb-3" style="opacity: 0.8;"></i>
+                        <i class="fa fa-newspaper-o fa-5x mb-3" style="opacity: 0.8;"></i>
                     </div>
                 </div>
             </div>
         </div>
+        @endif
 
         <!-- Main Content -->
         <div class="container">
-            <div class="row">
-                <!-- Main Content -->
-                <div class="col-lg-8">
-                    <!-- Featured News -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card news-card">
-                                <img src="https://via.placeholder.com/800x400/5836E7/ffffff?text=Berita+Utama"
-                                    class="card-img-top" alt="Berita Utama">
-                                <div class="card-body">
-                                    <span class="news-category">Politik</span>
-                                    <div class="news-date">
-                                        <i class="far fa-clock mr-1"></i> 2 jam yang lalu
-                                    </div>
-                                    <h2 class="card-title">Presiden Umumkan Kebijakan Baru untuk Meningkatkan Ekonomi
-                                        Nasional</h2>
-                                    <p class="card-text">Dalam konferensi pers yang digelar hari ini, Presiden
-                                        mengumumkan serangkaian kebijakan ekonomi baru yang diharapkan dapat
-                                        meningkatkan pertumbuhan ekonomi nasional hingga 6% pada tahun ini...</p>
-                                    <a href="#" class="btn btn-outline-primary">Baca Selengkapnya</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- News Grid -->
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <div class="card news-card">
-                                <img src="https://via.placeholder.com/400x250/5836E7/ffffff?text=Teknologi"
-                                    class="card-img-top" alt="Teknologi">
-                                <div class="card-body">
-                                    <span class="news-category">Teknologi</span>
-                                    <div class="news-date">
-                                        <i class="far fa-clock mr-1"></i> 4 jam yang lalu
-                                    </div>
-                                    <h5 class="card-title">Peluncuran Smartphone Terbaru dengan Teknologi AI</h5>
-                                    <p class="card-text">Perusahaan teknologi terkemuka mengumumkan peluncuran
-                                        smartphone dengan fitur kecerdasan buatan yang revolusioner...</p>
-                                    <a href="#" class="btn btn-sm btn-outline-primary">Baca Selengkapnya</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card news-card">
-                                <img src="https://via.placeholder.com/400x250/5836E7/ffffff?text=Olahraga"
-                                    class="card-img-top" alt="Olahraga">
-                                <div class="card-body">
-                                    <span class="news-category">Olahraga</span>
-                                    <div class="news-date">
-                                        <i class="far fa-clock mr-1"></i> 6 jam yang lalu
-                                    </div>
-                                    <h5 class="card-title">Tim Nasional Raih Kemenangan Gemilang</h5>
-                                    <p class="card-text">Dalam pertandingan yang berlangsung sengit, tim nasional
-                                        berhasil meraih kemenangan dengan skor 3-1...</p>
-                                    <a href="#" class="btn btn-sm btn-outline-primary">Baca Selengkapnya</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sidebar -->
-                <div class="col-lg-4">
-                    <!-- Trending News -->
-                    <div class="card">
-                        <div class="card-body p-0">
-                            <div class="sidebar-title">
-                                <i class="fas fa-fire mr-2"></i>Trending Hari Ini
-                            </div>
-                            <div class="p-3">
-                                <div class="trending-news">
-                                    <span class="news-category" style="font-size: 10px;">Ekonomi</span>
-                                    <h6 class="mt-2 mb-1">Harga BBM Turun Drastis Mulai Besok</h6>
-                                    <small class="text-muted">
-                                        <i class="far fa-clock mr-1"></i>1 jam yang lalu
-                                    </small>
-                                </div>
-                                <div class="trending-news">
-                                    <span class="news-category" style="font-size: 10px;">Kesehatan</span>
-                                    <h6 class="mt-2 mb-1">Vaksin COVID-19 Generasi Baru Tiba di Indonesia</h6>
-                                    <small class="text-muted">
-                                        <i class="far fa-clock mr-1"></i>3 jam yang lalu
-                                    </small>
-                                </div>
-                                <div class="trending-news">
-                                    <span class="news-category" style="font-size: 10px;">Hiburan</span>
-                                    <h6 class="mt-2 mb-1">Film Indonesia Meraih Penghargaan Internasional</h6>
-                                    <small class="text-muted">
-                                        <i class="far fa-clock mr-1"></i>5 jam yang lalu
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Most Read -->
-                    <div class="card mt-4">
-                        <div class="card-body p-0">
-                            <div class="sidebar-title">
-                                <i class="fas fa-eye mr-2"></i>Paling Banyak Dibaca
-                            </div>
-                            <div class="p-3">
-                                <ol class="list-unstyled">
-                                    <li class="media mb-3">
-                                        <img src="https://via.placeholder.com/80x60/5836E7/ffffff?text=1"
-                                            class="mr-3 rounded" alt="News">
-                                        <div class="media-body">
-                                            <h6 class="mt-0 mb-1">Cuaca Ekstrem Melanda Jakarta</h6>
-                                            <small class="text-muted">2.5k pembaca</small>
-                                        </div>
-                                    </li>
-                                    <li class="media mb-3">
-                                        <img src="https://via.placeholder.com/80x60/5836E7/ffffff?text=2"
-                                            class="mr-3 rounded" alt="News">
-                                        <div class="media-body">
-                                            <h6 class="mt-0 mb-1">Rupiah Menguat Terhadap Dolar AS</h6>
-                                            <small class="text-muted">1.8k pembaca</small>
-                                        </div>
-                                    </li>
-                                    <li class="media mb-3">
-                                        <img src="https://via.placeholder.com/80x60/5836E7/ffffff?text=3"
-                                            class="mr-3 rounded" alt="News">
-                                        <div class="media-body">
-                                            <h6 class="mt-0 mb-1">Terobosan Baru dalam Dunia Pendidikan</h6>
-                                            <small class="text-muted">1.2k pembaca</small>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Newsletter -->
-                    <div class="card mt-4" style="background: linear-gradient(135deg, #343957 0%, #7c4dff 100%);">
-                        <div class="card-body text-white">
-                            <h5 class="card-title">
-                                <i class="fas fa-envelope mr-2"></i>Newsletter
-                            </h5>
-                            <p class="card-text">Dapatkan berita terkini langsung di email Anda setiap hari.</p>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email Anda">
-                            </div>
-                            <button class="btn btn-light btn-block">
-                                <i class="fas fa-paper-plane mr-2"></i>Berlangganan
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @yield('content')
         </div>
 
         <!-- Footer -->
@@ -524,18 +372,25 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h5><i class="fas fa-newspaper mr-2"></i>NeueNews</h5>
+                        <h5 class="text-white"><i class="fa fa-newspaper-o mr-2 text-white"></i>NeueNews</h5>
                         <p>Portal berita terpercaya untuk informasi terkini dan akurat.</p>
                     </div>
                     <div class="col-md-6 text-md-right">
-                        <p>&copy; 2025 NeueNews. Semua hak dilindungi.</p>
+                        <p>&copy; 2025 Buana Aviora. Semua hak dilindungi.</p>
                     </div>
                 </div>
             </div>
         </footer>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/dashboard/dashboard-1.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const now = new Date();
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                document.getElementById('current-date').textContent = now.toLocaleDateString('id-ID', options);
+            });
+        </script>
         <script>
             // Smooth scrolling untuk anchor links
             $('a[href^="#"]').on('click', function (event) {
@@ -548,7 +403,6 @@
                 }
             });
 
-            // Active menu highlight
             $(window).scroll(function () {
                 var scrollDistance = $(window).scrollTop();
 
@@ -560,25 +414,11 @@
                 });
             }).scroll();
 
-            // Breaking news ticker effect (optional)
             setInterval(function () {
                 $('.breaking-news').fadeOut(500).fadeIn(500);
             }, 3000);
 
-            // Search functionality
-            $('.search-btn').click(function () {
-                var searchTerm = $('.search-box input').val();
-                if (searchTerm) {
-                    alert('Mencari: ' + searchTerm);
-                    // Implement actual search functionality here
-                }
-            });
 
-            $('.search-box input').keypress(function (e) {
-                if (e.which == 13) {
-                    $('.search-btn').click();
-                }
-            });
         </script>
     </body>
 

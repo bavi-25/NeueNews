@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 //Free Area
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/news/{id}', [HomeController::class, 'detail'])->name('news.detail');
+
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
 
