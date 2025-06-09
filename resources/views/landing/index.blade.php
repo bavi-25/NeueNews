@@ -7,11 +7,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card news-card">
-                    <img src="{{ Storage::url('news/'.$mainNews->image) }}" class="card-img-top" alt="Berita Utama">
+                    <img src="{{ Storage::url('news/'.$mainNews->image) }}" class="card-img-top featured-img" alt="Berita Utama">
                     <div class="card-body">
                         {{-- <span class="news-category">Politik</span> --}}
                         <div class="news-date">
-                            <i class="fa fa-clock-o mr-1"></i> 2 jam yang lalu
+                            <i class="fa fa-clock-o mr-1"></i> {{ $mainNews->created_at->diffForHumans() }}
                         </div>
                         <h2 class="card-title">{{ $mainNews->title }}</h2>
                         <p class="card-text">{{ Str::limit($mainNews->content, 150) }}</p>
@@ -27,7 +27,7 @@
             @foreach ($news as $item)
             <div class="col-md-6">
                 <div class="card news-card">
-                    <img src="{{ Storage::url('news/'.$item->image) }}" class="card-img-top" alt="Teknologi">
+                    <img src="{{ Storage::url('news/'.$item->image) }}" class="card-img-top news-img" alt="Teknologi">
                     <div class="card-body">
                         {{-- <span class="news-category">Teknologi</span> --}}
                         <div class="news-date">

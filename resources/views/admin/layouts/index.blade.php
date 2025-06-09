@@ -13,18 +13,20 @@
         <link href="/assets/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
         <link href="/assets/css/style.css" rel="stylesheet">
 
+        <!-- Datatables -->
         <link href="/assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-        <!-- Add Datatables Js -->
 
+        <!-- Sweet Alert2 -->
+        <link href="/assets/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
 
+        <!-- Custom CSS -->
+        <link href="/assets/css/custom.css" rel="stylesheet">
 
     </head>
 
     <body>
 
-        <!--*******************
-        Preloader start
-    ********************-->
+        <!--******************* Preloader start ********************-->
         <div id="preloader">
             <div class="sk-three-bounce">
                 <div class="sk-child sk-bounce1"></div>
@@ -32,19 +34,12 @@
                 <div class="sk-child sk-bounce3"></div>
             </div>
         </div>
-        <!--*******************
-        Preloader end
-    ********************-->
+        <!--****************** Preloader end ********************-->
 
 
-        <!--**********************************
-        Main wrapper start
-    ***********************************-->
+        <!--********************************** Main wrapper start ***********************************-->
         <div id="main-wrapper">
-
-            <!--**********************************
-            Nav header start
-        ***********************************-->
+            <!--********************************** Nav header start ***********************************-->
             <div class="nav-header">
                 <a href="index.html" class="brand-logo">
                     <img class="logo-abbr" src="/assets/images/logo.png" alt="">
@@ -58,13 +53,9 @@
                     </div>
                 </div>
             </div>
-            <!--**********************************
-            Nav header end
-        ***********************************-->
+            <!--********************************** Nav header end ***********************************-->
 
-            <!--**********************************
-            Header start
-        ***********************************-->
+            <!--**********************************  Header start ***********************************-->
             <div class="header">
                 <div class="header-content">
                     <nav class="navbar navbar-expand">
@@ -98,13 +89,9 @@
                     </nav>
                 </div>
             </div>
-            <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
+            <!--********************************** Header end ti-comment-alt ***********************************-->
 
-            <!--**********************************
-            Sidebar start
-        ***********************************-->
+            <!--********************************** Sidebar start ***********************************-->
             <div class="quixnav">
                 <div class="quixnav-scroll">
                     <ul class="metismenu" id="menu">
@@ -131,40 +118,21 @@
                     @yield('content')
                 </div>
             </div>
-            <!--**********************************
-            Content body end
-        ***********************************-->
+            <!--********************************** Content body end ***********************************-->
 
-
-            <!--**********************************
-            Footer start
-        ***********************************-->
+            <!--********************************** Footer start ***********************************-->
             <div class="footer">
                 <div class="copyright">
                     <p>Copyright © Developed by <a href="#" target="_blank">Buana Aviora</a> 2025</p>
                 </div>
             </div>
-            <!--**********************************
-            Footer end
-        ***********************************-->
-
-            <!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-            <!--**********************************
-           Support ticket button end
-        ***********************************-->
-
+            <!--********************************** Footer end ***********************************-->
 
         </div>
-        <!--**********************************
-        Main wrapper end
-    ***********************************-->
+        <!--********************************** Main wrapper end ***********************************-->
 
-        <!--**********************************
-        Scripts
-    ***********************************-->
+        <!--********************************** Scripts ***********************************-->
+
         <!-- Required vendors -->
         <script src="/assets/vendor/global/global.min.js"></script>
         <script src="/assets/js/quixnav-init.js"></script>
@@ -198,6 +166,15 @@
 
         <script src="/assets/js/dashboard/dashboard-1.js"></script>
 
+        <script src="/assets/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
+        <script>
+            @if (session('success'))
+                swal("Success!", "{{ session('success') }}","success");
+            @endif
+            @if (session('error'))
+                swal("Error!", "{{ session('error') }}", "error");
+            @endif
+        </script>
     </body>
 
 </html>
