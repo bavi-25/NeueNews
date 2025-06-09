@@ -39,7 +39,6 @@
                             @enderror
                         </div>
 
-                        {{-- Content --}}
                         <div class="form-group col-md-12">
                             <label for="content" class="text-dark">Content</label>
                             <textarea name="content" class="form-control @error('content') is-invalid @enderror"
