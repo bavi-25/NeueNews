@@ -53,9 +53,7 @@
                     </div>
                 </div>
                 <div class="form-group mb-0">
-                    <a href="" class="text-primary">
-                        Forgot Password?
-                    </a>
+
                 </div>
             </div>
 
@@ -73,10 +71,11 @@
         </form>
 
         <div class="text-center mt-4">
-            <p class="text-muted">
-                Don't have an account?
-                <a href="" class="text-primary">Sign up here</a>
-            </p>
+            <div class="text-center">
+                <a href="/" class="btn btn-danger btn-lg">
+                    Back
+                </a>
+            </div>
         </div>
     </div>
 </div>

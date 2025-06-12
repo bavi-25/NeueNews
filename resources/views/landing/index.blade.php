@@ -5,6 +5,7 @@
     <div class="col-lg-8">
         <!-- Featured News -->
         <div class="row">
+@if ($mainNews)
             <div class="col-md-12">
                 <div class="card news-card">
                     <img src="{{ Storage::url('news/'.$mainNews->image) }}" class="card-img-top featured-img" alt="Berita Utama">
@@ -20,6 +21,35 @@
                     </div>
                 </div>
             </div>
+            @else
+            <!-- Card Kosong - Belum Ada Berita -->
+            <div class="col-md-12">
+                <div class="card news-card empty-news-card">
+                    <div class="card-body text-center py-5">
+                        <div class="empty-news-icon mb-4">
+                            <i class="fa fa-newspaper-o" style="font-size: 4rem; color: #dee2e6;"></i>
+                        </div>
+                        <h3 class="card-title text-muted mb-3">Belum Ada Berita Utama</h3>
+                        <p class="card-text text-muted mb-4">
+                            Saat ini belum ada berita utama yang dipublikasikan.
+                            Silakan kembali lagi nanti untuk mendapatkan informasi terbaru.
+                        </p>
+                        <div class="empty-news-actions">
+                            <a href="" class="btn btn-outline-primary mr-2">
+                                <i class="fa fa-list mr-2"></i>Lihat Semua Berita
+                            </a>
+                            <button type="button" class="btn btn-outline-secondary" onclick="location.reload()">
+                                <i class="fa fa-refresh mr-2"></i>Muat Ulang
+                            </button>
+                        </div>
+                        <hr class="my-4">
+                        <small class="text-muted">
+                            <i class="fa fa-info-circle mr-1"></i>
+                            Berita akan segera hadir. Terima kasih atas kesabaran Anda.
+                        </small>
+                    </div>
+                </div>
+            </div>  @endif
         </div>
 
         <!-- News Grid -->
